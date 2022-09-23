@@ -3,7 +3,7 @@ import { gettAllCampus, createCampus } from "../controllers/CampusController";
 
 const router = Router();
 
-router.get('/campus/get-all-campus', gettAllCampus);
-router.post('/campus/create-campus', createCampus);
+router.get('/api/campus/get-all-campus', gettAllCampus);
+router.post('/api/campus/create-campus', createCampus);
 
 export default router;
