@@ -10,12 +10,23 @@ const gettAllCampus = async (req: Request, res: Response) => {
   }
 };
 
+const getCampusById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    const campus = await Campus.findById(id);
+    res.json(campus);
+  } catch (error) {
+    res.json(error);
+  }
+}
+
 const createCampus = async (req: Request, res: Response) => {
-  const { nameImg, campusName, campusPlace, campusDirection, _id } = req.body;
+  const { nameImg, campusName, campusPlace, campusDirection, sedeName, _id } = req.body;
   const newCampus = new Campus({
     _id,
     nameImg,
     campusName,
+    sedeName,
     campusPlace,
     campusDirection,
   });
@@ -27,4 +38,4 @@ const createCampus = async (req: Request, res: Response) => {
   }
 }
 
-export { gettAllCampus, createCampus };
+export { gettAllCampus, createCampus, getCampusById };
